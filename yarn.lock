@@ -1545,11 +1545,6 @@ console-control-strings@^1.0.0, console-control-strings@~1.1.0:
   resolved "https://registry.npmjs.org/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
   integrity sha1-PXz0Rk22RG6mRL9LOVB/mFEAjo4=
 
-const@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/const/-/const-1.0.0.tgz#d159191665b6885f5d65c55335626a87cc6ec13c"
-  integrity sha1-0VkZFmW2iF9dZcVTNWJqh8xuwTw=
-
 convert-source-map@^1.7.0:
   version "1.7.0"
   resolved "https://registry.npmjs.org/convert-source-map/-/convert-source-map-1.7.0.tgz#17a2cb882d7f77d3490585e2ce6c524424a3a442"

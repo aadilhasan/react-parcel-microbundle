@@ -7,7 +7,7 @@ export default Calendar;
 `;
 
 const commandOptions =
-  "-f esm --jsx React.createElement --no-sourcemap --alias utils=lib/utils/index.js";
+  "-f esm --jsx React.createElement --no-sourcemap --alias utils=lib/utils/index.js,const=lib/const/index.js";
 
 function replaceFiles() {
   fs.renameSync(
