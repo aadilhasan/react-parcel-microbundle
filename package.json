@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel public/index.html",
     "build": "microbundle -f esm --jsx React.createElement",
-    "script": "node scripts/build.js"
+    "build-prod": "node scripts/build.js"
   },
   "author": "aadil hasan",
   "license": "MIT",

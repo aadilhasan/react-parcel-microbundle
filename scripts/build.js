@@ -6,8 +6,35 @@ import "./Calendar.css";
 export default Calendar;
 `;
 
-const commandOptions =
-  "-f esm --jsx React.createElement --no-sourcemap --alias utils=lib/utils/index.js,const=lib/const/index.js";
+const microbundleCommand =
+  "microbundle -f esm --jsx React.createElement --no-sourcemap --alias utils=lib/utils/index.js,const=lib/const/index.js";
+
+function runCommand(_command) {
+  return new Promise((resolve, reject) => {
+    let command = _command.split(" ");
+    let options = command.splice(1);
+    const child = spawn(command[0], options, {
+      stdio: "inherit"
+    });
+
+    child.on("error", () => {
+      console.error({
+        command: `Process failed : ${options.join(" ")}`
+      });
+      reject();
+    });
+
+    child.on("close", code => {
+      if (code !== 0) {
+        console.error({
+          command: `node ${options.join(" ")}`
+        });
+        return;
+      }
+      resolve();
+    });
+  });
+}
 
 function replaceFiles() {
   fs.renameSync(
@@ -28,26 +55,18 @@ function replaceFiles() {
   });
 }
 
-function init() {
-  const child = spawn("microbundle", commandOptions.split(" "), {
-    stdio: "inherit"
-  });
-
-  child.on("error", () => {
-    console.error({
-      command: `Process failed : ${options.join(" ")}`
-    });
-  });
-
-  child.on("close", code => {
-    if (code !== 0) {
-      console.error({
-        command: `node ${options.join(" ")}`
-      });
-      return;
-    }
+async function init() {
+  try {
+    console.log("removing dist ✄ ✄ ✄ ");
+    await runCommand("rm -rf dist");
+    console.log("microbundle running 🏃🏻‍♂️🏃🏻‍♂️🏃🏻‍♂️ ");
+    await runCommand(microbundleCommand);
+    console.log("finishing build 😎😎😎 ");
     replaceFiles();
-  });
+    console.log("build complete 🥳🥳🥳 ");
+  } catch (e) {
+    // log error
+  }
 }
 
 init();
