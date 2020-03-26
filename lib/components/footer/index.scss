@@ -1,0 +1,75 @@
+.default-footer {
+  height: 125px;
+  display: flex;
+  flex-direction: column;
+  .hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 3;
+    flex: 1;
+  }
+  .date-heading {
+    font-size: 80%;
+    color: #8795a1;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .selected-dates {
+    flex: 1;
+  }
+  .holder-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &.center-items {
+      justify-content: center;
+    }
+    .date-holder {
+      text-align: left;
+      .heading {
+        font-size: 80%;
+        color: #3d4852;
+      }
+      &.second .heading {
+        text-align: right;
+      }
+      .date {
+        font-size: 80%;
+        font-weight: 500;
+        margin-top: 7px;
+        .time {
+          font-size: 79%;
+          font-weight: initial;
+        }
+      }
+    }
+  }
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
+    .today {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      color: #1bbf9a;
+      outline: none;
+      padding: 0;
+    }
+    .select {
+      border-radius: 3px;
+      box-shadow: 0 1px 3px -1px #e0e0e0;
+      background-color: #ffffff;
+      border: solid 1px #e0e0e0;
+      padding: 7px 25px;
+      font-weight: bold;
+      outline: none;
+      &:disabled {
+        cursor: not-allowed;
+      }
+    }
+  }
+}

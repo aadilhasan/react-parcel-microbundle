@@ -1,0 +1,41 @@
+@import '../common';
+
+.year-picker {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: white;
+  z-index: 2;
+  flex-direction: column;
+  display: flex;
+  transition: all 0.5s ease;
+  transform: translateY(-103%);
+  padding: 10px;
+  &.visible {
+    transform: translateY(0%);
+  }
+  .year-grid {
+    width: 100%;
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    .year-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 4px;
+      cursor: pointer;
+      &:hover {
+        background-color: rgba(42, 123, 255, 0.2);
+      }
+      &.selected {
+        color: $primary-color;
+        font-weight: bold;
+      }
+    }
+  }
+}

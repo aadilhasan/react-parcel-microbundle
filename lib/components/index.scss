@@ -1,0 +1,83 @@
+@import './common';
+
+.date-picker-app-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  .calendar-wrapper {
+    position: relative;
+  }
+}
+
+#__range-picker-container {
+  .calendar {
+    background-color: white;
+    position: absolute;
+    top: 0;
+    transform: scaleY(0);
+    transition: transform 0.2s cubic-bezier(0.08, -0.03, 0.93, 0.32);
+    transform-origin: top left;
+    animation: slide-out 0.2s linear;
+    &.visible {
+      transform: scaleY(1);
+      // transition: transform 0.2s cubic-bezier(0, 0.65, 0.62, 1.03);
+      animation: slide-in 0.2s linear;
+    }
+  }
+  .full-date-picker-container {
+    // border: 1px solid gray;
+    box-shadow: 0 4px 16px 0 rgba(64, 93, 119, 0.15),
+      0 0 2px 0 rgba(96, 111, 123, 0.2);
+    border-radius: 4px;
+    padding: 10px;
+    display: inline-flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    > div {
+      // position: relative;
+    }
+    .date-picker {
+      font-size: 90%;
+      // padding: 10px;
+    }
+    .default-placeholder {
+      // padding: 10px;
+    }
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  20% {
+    transform: scaleY(1);
+  }
+  80% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-out {
+  0% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  70% {
+    opacity: 0;
+  }
+  90% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(0.9);
+    opacity: 0;
+    z-index: -3;
+  }
+}

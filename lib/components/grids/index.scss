@@ -1,0 +1,31 @@
+$calendar-width: 260px;
+.grids {
+  position: relative;
+  min-height: 285px;
+  width: $calendar-width;
+  overflow: hidden;
+  padding: 10px 0;
+  .date-grid-container {
+    width: $calendar-width;
+  }
+  .animation-helper {
+    position: absolute;
+    display: flex;
+    transform: translateX(-278px);
+    will-change: transform;
+    &.move-left {
+      transition: all 0.5s ease;
+      transform: translateX(-6px);
+    }
+    &.move-right {
+      transition: all 0.5s ease;
+      transform: translateX(-550px);
+    }
+  }
+
+  //   temp style
+  .month {
+    border-radius: 4px;
+    margin: 0 6px;
+  }
+}

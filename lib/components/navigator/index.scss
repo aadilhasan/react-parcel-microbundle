@@ -1,0 +1,61 @@
+@import '../common';
+
+%arrow {
+  position: relative;
+  content: '';
+  display: inline-block;
+  width: 0.5em;
+  height: 0.5em;
+  border-right: 0.15em solid $primary-color;
+  border-top: 0.15em solid $primary-color;
+}
+%btn-style {
+  background: #ffffff;
+  border: none;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.navigator {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 0px 5px 10px 5px;
+  min-height: 38px;
+  align-items: center;
+  font-size: 108%;
+  .prev,
+  .next {
+    @extend %btn-style;
+    // box-shadow: 0 4px 16px 0 rgba(64, 93, 119, 0.15),
+    //   0 0 2px 0 rgba(96, 111, 123, 0.2);
+    width: 38px;
+    height: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #f8fafc;
+  }
+  .prev.arrow::before {
+    @extend %arrow;
+    transform: rotate(-135deg);
+  }
+  .next.arrow::before {
+    @extend %arrow;
+    transform: rotate(45deg);
+  }
+  .month {
+    min-width: 91px;
+  }
+  .year,
+  .month {
+    @extend %btn-style;
+    font-size: 1em;
+  }
+  .values {
+    flex: 1;
+    text-align: center;
+  }
+}
